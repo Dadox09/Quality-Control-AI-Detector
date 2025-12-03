@@ -57,10 +57,8 @@ Progetto_Quality_Control/
 
 The `03_svm_vs_resnet.ipynb` notebook demonstrates why Deep Learning is superior in an industrial context. Models are tested on "stressed" images (rotated, shifted, with altered brightness).
 
-| Model | Accuracy (Stress Test) |
-|---|---|
-| SVM (with HOG) | ~53% |
-| **ResNet18** | **~99%** |
+![Stress Test Comparison: SVM vs ResNet18](results/final_comparison.png)
+
 
 The **ResNet18 maintains nearly perfect performance**, while the SVM degrades drastically, demonstrating it's not robust enough for real-world variations.
 
