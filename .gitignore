@@ -1,0 +1,41 @@
+# Add this to .gitignore to avoid committing large files
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+
+# PyTorch
+*.pth
+*.pkl
+
+# Data
+data/raw/
+data/processed/
+*.jpeg
+*.jpg
+*.png
+*.csv
+
+# Models
+models/saved_models/
+models/checkpoints/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Results (optional: you may want to commit some plots)
+# results/plots/
+# results/reports/
