@@ -2,22 +2,14 @@
 
 Sistema di **Quality Control automatico** per ispezione componenti metallici con ML e Deep Learning.
 
-## 📓 I 2 Notebook
+## 📓 I 4 Notebook
 
-### 1️⃣ `01_svm_baseline.ipynb` - ML Classico
-⏱️ **15-30 minuti**
+Il progetto è strutturato in 4 notebook che guidano l'utente da un modello base fino a un confronto finale sulla robustezza.
 
-- HOG feature extraction
-- SVM con Grid Search
-- Usa: `sklearn`, `scikit-image`
-
-### 2️⃣ `02_resnet18_training.ipynb` - Deep Learning  
-⏱️ **20-60 minuti** (con GPU)
-
-- ResNet18 pretrained (ImageNet)
-- Transfer learning + fine-tuning
-- GPU AMD (DirectML)
-- Usa: `PyTorch`, `torchvision`
+1.  **`00_svm.ipynb`**: Baseline SVM semplice basata sui pixel grezzi.
+2.  **`01_svm_withHog.ipynb`**: Versione migliorata con estrazione di feature **HOG**.
+3.  **`02_resnet18_training.ipynb`**: Approccio **Deep Learning** con una ResNet18 pre-addestrata.
+4.  **`03_svm_vs_resnet.ipynb`**: **Stress test finale** che confronta SVM e ResNet su immagini alterate per simulare condizioni reali.
 
 ## 🚀 Quick Start
 
@@ -26,13 +18,13 @@ Sistema di **Quality Control automatico** per ispezione componenti metallici con
 venv\Scripts\activate.bat
 ```
 
-### 2. Apri Notebook in VS Code
-1. Apri `notebooks/01_svm_baseline.ipynb`
-2. Seleziona kernel: **venv**
-3. Esegui celle: **Shift+Enter**
+### 2. Apri il Primo Notebook
+1. Apri `notebooks/00_svm.ipynb` in VS Code.
+2. Seleziona il kernel **venv** (in alto a destra).
+3. Esegui le celle con **Shift+Enter**.
 
-### 3. Ripeti per ResNet18
-Stesso processo con `02_resnet18_training.ipynb`
+### 3. Prosegui con gli Altri
+Esegui i notebook in ordine numerico per seguire il flusso logico del progetto.
 
 ## 📁 Struttura
 
@@ -44,8 +36,10 @@ Progetto_Quality_Control/
 │   ├── test/ok/
 │   └── test/def_front/
 ├── notebooks/             # 👈 USA QUESTI!
-│   ├── 01_svm_baseline.ipynb
-│   └── 02_resnet18_training.ipynb
+│   ├── 00_svm.ipynb
+│   ├── 01_svm_withHog.ipynb
+│   ├── 02_resnet18_training.ipynb
+│   └── 03_svm_vs_resnet.ipynb
 ├── results/               # Output automatico
 ├── requirements.txt
 └── README.md
@@ -59,12 +53,16 @@ Progetto_Quality_Control/
 - 300×300 grayscale
 - 2 classi: `ok` / `defective`
 
-## 🎯 Risultati Attesi
+## 🎯 Risultati: Lo Stress Test
 
-| Metrica | SVM | ResNet18 |
-|---------|-----|----------|
-| Accuracy | ~85-90% | ~95-98% |
-| Training | 15-30min | 20-60min |
+Il notebook `03_svm_vs_resnet.ipynb` dimostra perché il Deep Learning è superiore in un contesto industriale. I modelli vengono testati su immagini "stressate" (ruotate, spostate, con luminosità alterata).
+
+| Modello | Accuracy (Stress Test) |
+|---|---|
+| SVM (con HOG) | ~37% |
+| **ResNet18** | **~99%** |
+
+La **ResNet18 mantiene performance quasi perfette**, mentre l'SVM degrada drasticamente, dimostrando di non essere sufficientemente robusto per variazioni del mondo reale.
 
 ## 💡 Tips
 

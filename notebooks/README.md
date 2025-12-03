@@ -1,67 +1,57 @@
 # Jupyter Notebooks 📓
 
-Due notebook semplici e autocontenuti per Quality Control:
+Questa cartella contiene 4 notebook che esplorano e confrontano approcci di Machine Learning e Deep Learning per il controllo qualità.
 
-## 📊 I 2 Notebook
+## 📊 I 4 Notebook
 
-### `01_svm_baseline.ipynb`
-**Baseline ML Classico** (~15-30 min)
+L'ordine consigliato segue una progressione logica, dal modello più semplice al confronto finale.
 
-Cosa fa:
-- Carica immagini dataset
-- Estrae feature HOG
-- Train SVM con Grid Search
-- Valutazione e confusion matrix
-- Salva modello e risultati
-
-Stack: sklearn, scikit-image, matplotlib
+### 1️⃣ `00_svm.ipynb`
+**Approccio #1: SVM su Pixel Grezzi** 
+- **Scopo**: Creare una baseline ultra-semplice usando un classificatore SVM direttamente sui pixel delle immagini ridimensionate.
+- **Stack**: `sklearn`, `scikit-image`
 
 ---
 
-### `02_resnet18_training.ipynb`  
-**Deep Learning con ResNet18** (~20-60 min)
+### 2️⃣ `01_svm_withHog.ipynb`
+**Approccio #2: SVM con Feature HOG**
+- **Scopo**: Migliorare la baseline SVM utilizzando l'estrazione di feature **HOG** (Histogram of Oriented Gradients) per descrivere meglio la forma degli oggetti.
+- **Stack**: `sklearn`, `scikit-image`
 
-Cosa fa:
-- Transfer learning da ImageNet
-- Data augmentation
-- Training con GPU (DirectML)
-- Plot training curves
-- Valutazione e confusion matrix
-- Salva best model
+---
 
-Stack: PyTorch, torchvision, torch-directml
+### 3️⃣ `02_resnet18_training.ipynb`
+**Approccio #3: Deep Learning con ResNet18** 
+- **Scopo**: Utilizzare un'architettura di Deep Learning (ResNet18) con **transfer learning** per ottenere performance superiori.
+- **Stack**: `PyTorch`, `torchvision`
+
+---
+
+### 4️⃣ `03_svm_vs_resnet.ipynb`
+**Confronto Finale: Stress Test**
+- **Scopo**: Caricare i modelli SVM e ResNet e testarli su immagini "stressate" (ruotate, spostate, con luminosità alterata) per simulare un ambiente reale e valutare la robustezza.
+- **Stack**: `PyTorch`, `sklearn`
 
 ## 🎯 Come Usare
 
-1. **Apri notebook** in VS Code
-2. **Seleziona kernel**: `venv` (in alto a destra)
-3. **Esegui celle**: Shift+Enter
-4. **Output**: Salvato automaticamente in `../results/`
+1. **Apri un notebook** in VS Code (parti da `00_svm.ipynb`).
+2. **Seleziona il kernel**: `venv` (in alto a destra).
+3. **Esegui le celle**: `Shift+Enter`.
+4. **Output**: I risultati (modelli, grafici, metriche) vengono salvati automaticamente in `../results/`.
 
 ## 📈 Output Generati
 
-Ogni notebook crea:
-- 🤖 Modello salvato (.pkl o .pth)
-- 📊 Metriche (JSON)
-- 🎨 Confusion matrix (PNG)
-- 📉 Training curves (PNG, solo ResNet)
+Ogni notebook di training (`00`, `01`, `02`) crea:
+- 🤖 Modello salvato (`.pkl` o `.pth`)
+- 📊 Metriche (`.json`)
+- 🎨 Confusion matrix (`.png`)
+
+Il notebook di confronto (`03`) genera il grafico finale `final_comparison.png`.
 
 ## 💡 Tips
 
-✅ **Self-contained**: Tutto il codice è nei notebook  
-✅ **Modificabile**: Cambia hyperparameters direttamente  
-✅ **No dependencies**: Non servono file .py esterni  
-✅ **GPU ready**: DirectML attivo automaticamente
-
-## ⚙️ Hyperparameters Principali
-
-**SVM:**
-- C, gamma, kernel (Grid Search)
-- HOG: orientations, pixels_per_cell
-
-**ResNet18:**
-- `BATCH_SIZE = 32`
-- `LEARNING_RATE = 0.001`
-- `NUM_EPOCHS = 20`
+✅ **Self-contained**: Tutto il codice è nei notebook, non servono file `.py` esterni.
+✅ **Modificabile**: Cambia gli iperparametri (es. `BATCH_SIZE`, `NUM_EPOCHS`) direttamente nelle celle.
+✅ **GPU Ready**: `torch-directml` viene usato automaticamente se configurato.
 
 Buon training! 🚀
