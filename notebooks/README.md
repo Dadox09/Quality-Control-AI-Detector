@@ -1,57 +1,57 @@
 # Jupyter Notebooks 📓
 
-Questa cartella contiene 4 notebook che esplorano e confrontano approcci di Machine Learning e Deep Learning per il controllo qualità.
+This folder contains 4 notebooks that explore and compare Machine Learning and Deep Learning approaches for quality control.
 
-## 📊 I 4 Notebook
+## 📊 The 4 Notebooks
 
-L'ordine consigliato segue una progressione logica, dal modello più semplice al confronto finale.
+The recommended order follows a logical progression, from the simplest model to the final comparison.
 
 ### 1️⃣ `00_svm.ipynb`
-**Approccio #1: SVM su Pixel Grezzi** 
-- **Scopo**: Creare una baseline ultra-semplice usando un classificatore SVM direttamente sui pixel delle immagini ridimensionate.
+**Approach #1: SVM on Raw Pixels** 
+- **Goal**: Create an ultra-simple baseline using an SVM classifier directly on the pixels of resized images.
 - **Stack**: `sklearn`, `scikit-image`
 
 ---
 
 ### 2️⃣ `01_svm_withHog.ipynb`
-**Approccio #2: SVM con Feature HOG**
-- **Scopo**: Migliorare la baseline SVM utilizzando l'estrazione di feature **HOG** (Histogram of Oriented Gradients) per descrivere meglio la forma degli oggetti.
+**Approach #2: SVM with HOG Features**
+- **Goal**: Improve the SVM baseline by using **HOG** (Histogram of Oriented Gradients) feature extraction to better describe object shapes.
 - **Stack**: `sklearn`, `scikit-image`
 
 ---
 
 ### 3️⃣ `02_resnet18_training.ipynb`
-**Approccio #3: Deep Learning con ResNet18** 
-- **Scopo**: Utilizzare un'architettura di Deep Learning (ResNet18) con **transfer learning** per ottenere performance superiori.
+**Approach #3: Deep Learning with ResNet18** 
+- **Goal**: Use a Deep Learning architecture (ResNet18) with **transfer learning** to achieve superior performance.
 - **Stack**: `PyTorch`, `torchvision`
 
 ---
 
 ### 4️⃣ `03_svm_vs_resnet.ipynb`
-**Confronto Finale: Stress Test**
-- **Scopo**: Caricare i modelli SVM e ResNet e testarli su immagini "stressate" (ruotate, spostate, con luminosità alterata) per simulare un ambiente reale e valutare la robustezza.
+**Final Comparison: Stress Test**
+- **Goal**: Load the SVM and ResNet models and test them on "stressed" images (rotated, shifted, with altered brightness) to simulate a real environment and evaluate robustness.
 - **Stack**: `PyTorch`, `sklearn`
 
-## 🎯 Come Usare
+## 🎯 How to Use
 
-1. **Apri un notebook** in VS Code (parti da `00_svm.ipynb`).
-2. **Seleziona il kernel**: `venv` (in alto a destra).
-3. **Esegui le celle**: `Shift+Enter`.
-4. **Output**: I risultati (modelli, grafici, metriche) vengono salvati automaticamente in `../results/`.
+1. **Open a notebook** in VS Code (start with `00_svm.ipynb`).
+2. **Select the kernel**: `venv` (top right).
+3. **Run cells**: `Shift+Enter`.
+4. **Output**: Results (models, graphs, metrics) are automatically saved in `../results/`.
 
-## 📈 Output Generati
+## 📈 Generated Output
 
-Ogni notebook di training (`00`, `01`, `02`) crea:
-- 🤖 Modello salvato (`.pkl` o `.pth`)
-- 📊 Metriche (`.json`)
+Each training notebook (`00`, `01`, `02`) creates:
+- 🤖 Saved model (`.pkl` or `.pth`)
+- 📊 Metrics (`.json`)
 - 🎨 Confusion matrix (`.png`)
 
-Il notebook di confronto (`03`) genera il grafico finale `final_comparison.png`.
+The comparison notebook (`03`) generates the final chart `final_comparison.png`.
 
 ## 💡 Tips
 
-✅ **Self-contained**: Tutto il codice è nei notebook, non servono file `.py` esterni.
-✅ **Modificabile**: Cambia gli iperparametri (es. `BATCH_SIZE`, `NUM_EPOCHS`) direttamente nelle celle.
-✅ **GPU Ready**: `torch-directml` viene usato automaticamente se configurato.
+✅ **Self-contained**: All code is in the notebooks, no external `.py` files needed.
+✅ **Modifiable**: Change hyperparameters (e.g., `BATCH_SIZE`, `NUM_EPOCHS`) directly in cells.
+✅ **GPU Ready**: `torch-directml` is used automatically if configured.
 
-Buon training! 🚀
+Happy training! 🚀
