@@ -72,13 +72,6 @@ The `03_svm_vs_resnet.ipynb` notebook demonstrates why Deep Learning is superior
 
 The **ResNet18 maintains nearly perfect performance**, while the SVM degrades drastically, demonstrating it's not robust enough for real-world variations.
 
-## 💡 Tips
-
-✅ **Self-contained** notebooks - zero external dependencies  
-✅ Modify hyperparameters directly in cells  
-✅ Output saved in `results/`  
-✅ Automatic GPU (if available)
-
 ## 🛠️ Troubleshooting
 
 **GPU not working?**
