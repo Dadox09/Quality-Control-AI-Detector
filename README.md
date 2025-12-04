@@ -53,6 +53,16 @@ Progetto_Quality_Control/
 - 300×300 grayscale
 - 2 classes: `ok` / `defective`
 
+## Results
+
+| Model | Accuracy| Notes |
+|---|---|---|
+| SVM | ~97% | Surprisingly simple baseline based on raw pixels works very well. |
+| SVM with HOG | ~98% | Improved version with **HOG** feature extraction. |
+| ResNet18 | ~99% | Deep Learning approach with a pre-trained ResNet18. |
+
+This table shows the accuracy of the models on the test set. We can see that, in the ideal conditions as the perfect positioning of the objects (in the center of the image) and the clear light conditions, the accuracy is around 97%, 98% and 99% for the SVM, SVM with HOG and ResNet18 models, respectively. So you can think that using **ResNet18** could be a lost of resources. The main porpose of the next step is to demonstrate the robustness of a Deep Learning model (As ResNet18) in the real world conditions.
+
 ## 🎯 Results: The Stress Test
 
 The `03_svm_vs_resnet.ipynb` notebook demonstrates why Deep Learning is superior in an industrial context. Models are tested on "stressed" images (rotated, shifted, with altered brightness).
@@ -86,4 +96,4 @@ pip install -r requirements.txt
 
 ---
 
-**Ready!** Open the notebooks and start 🚀
+**Ready** Open the notebooks and start 
